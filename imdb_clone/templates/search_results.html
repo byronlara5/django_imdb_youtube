@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+
+    <div id="index-banner">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <h2 class="header orange-text">Search results for:</h2>
+        <h3 class="header black-text">{{ query }}</h3>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+      <!--   Icon Section   -->
+      <div class="row">
+
+
+
+        {% for movie in movie_data.Search %}
+          <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+
+              {% if movie.Poster == 'N/A' %}
+                <a href="{% url 'movie-details' movie.imdbID%}"><img src="{% static 'img/no_poster.jpg' %}"></a>
+              {% else %}
+                <a href="{% url 'movie-details' movie.imdbID%}"><img src="{{ movie.Poster }}"></a>
+              {% endif %}
+              
+
+              </div>
+              <div class="card-content">
+                <span class="card-title"><b>{{ movie.Title }}</b></span>
+                <span class="right"><i class="material-icons">date_range</i>{{ movie.Year }}</span>
+                <p><b>{{ movie.Type }}</b></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+
+      <div class="col s12 m12 center-align">
+        <a href="{% url 'pagination' query page_number %}" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Load more</a>
+      <div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+{% endblock %}
