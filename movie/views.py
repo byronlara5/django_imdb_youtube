@@ -22,7 +22,7 @@ def index(request):
 	query = request.GET.get('q')
 
 	if query:
-		url = 'http://www.omdbapi.com/?apikey=603c37ac&s=' + query
+		url = 'http://www.omdbapi.com/?apikey=YOUR_KEY&s=' + query
 		response = requests.get(url)
 		movie_data = response.json()
 
@@ -40,7 +40,7 @@ def index(request):
 
 
 def pagination(request, query, page_number):
-	url = 'http://www.omdbapi.com/?apikey=603c37ac&s=' + query + '&page=' + str(page_number)
+	url = 'http://www.omdbapi.com/?apikey=YOUR_KEY&s=' + query + '&page=' + str(page_number)
 	response = requests.get(url)
 	movie_data = response.json()
 	page_number = int(page_number) + 1
@@ -73,7 +73,7 @@ def movieDetails(request, imdb_id):
 		}
 
 	else:
-		url = 'http://www.omdbapi.com/?apikey=603c37ac&i=' + imdb_id
+		url = 'http://www.omdbapi.com/?apikey=YOUR_KEY&i=' + imdb_id
 		response = requests.get(url)
 		movie_data = response.json()
 
