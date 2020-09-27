@@ -1,6 +1,6 @@
-# IMDB clone in Django
+# Basic IMDB clone in Django
 
-Basic IMDB type of website  built in django web framework using Python the purpouse. 
+Basic IMDB type of website  built in django web framework using Python. 
 
 ## Getting Started
 
